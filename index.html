@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exclusive Invitation | Mandani Hardik</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="bg-particles" id="particles"></div>
+
+  <!-- Stage 1: The Luxury Wax Seal Envelope -->
+  <div class="envelope-wrapper" id="envelope-screen">
+    <div class="envelope" onclick="openInvitation()">
+      <div class="envelope-front">
+        <div class="golden-border">
+          <div class="seal-icon">✦</div>
+          <p class="invite-pre">YOU ARE CORDIALLY INVITED TO</p>
+          <h2 class="invite-title">A Special Celebration</h2>
+          <div class="wax-seal">
+            <span>MH</span>
+          </div>
+          <p class="tap-hint">Tap the Seal to Open</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stage 2: The Unfolded Modern Luxury Invitation Card -->
+  <main class="card-container hidden" id="card-screen">
+    <div class="card">
+      <div class="card-inner">
+        <!-- Floating Sparkle Elements -->
+        <div class="sparkle top-left">✦</div>
+        <div class="sparkle bottom-right">✦</div>
+
+        <!-- Header -->
+        <header class="header">
+          <span class="badge">EXCLUSIVE INVITATION</span>
+          <p class="hosted-by">HOSTED WITH JOY BY</p>
+          <h1 class="host-name">Mandani Hardik</h1>
+          <div class="gold-divider"><span>♦</span></div>
+        </header>
+
+        <!-- Event Body -->
+        <section class="event-details">
+          <h2 class="event-name">Grand Celebration & Gathering</h2>
+          <p class="event-tagline">Join us for an unforgettable evening of joy, dining, and celebration together.</p>
+
+          <!-- Live Countdown Timer -->
+          <div class="countdown-wrapper">
+            <span class="cd-label">COUNTDOWN TO THE CELEBRATION</span>
+            <div class="countdown" id="countdown">
+              <div class="time-block">
+                <span id="days">24</span>
+                <label>Days</label>
+              </div>
+              <div class="time-sep">:</div>
+              <div class="time-block">
+                <span id="hours">08</span>
+                <label>Hours</label>
+              </div>
+              <div class="time-sep">:</div>
+              <div class="time-block">
+                <span id="mins">45</span>
+                <label>Mins</label>
+              </div>
+              <div class="time-sep">:</div>
+              <div class="time-block">
+                <span id="secs">30</span>
+                <label>Secs</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Key Event Info Grid -->
+          <div class="info-grid">
+            <div class="info-card">
+              <div class="info-icon">📅</div>
+              <div class="info-text">
+                <strong>Sunday, October 25, 2026</strong>
+                <span>7:00 PM Onwards (IST)</span>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="info-icon">📍</div>
+              <div class="info-text">
+                <strong>The Grand Palace Hall</strong>
+                <span>Kalawad Road, Rajkot, Gujarat</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Actions: Directions & RSVP -->
+        <section class="actions-section">
+          <div class="button-group">
+            <a href="https://maps.google.com" target="_blank" class="btn btn-secondary">
+              📍 View Location
+            </a>
+            <button class="btn btn-primary" onclick="showRsvpModal()">
+              ✉️ RSVP / Confirm Attendance
+            </button>
+          </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+          <p>We look forward to celebrating this special day with you!</p>
+          <small>Designed & Built with Antigravity AI &bull; Mandani Hardik</small>
+        </footer>
+      </div>
+    </div>
+  </main>
+
+  <!-- Interactive RSVP Modal -->
+  <div class="modal-overlay hidden" id="rsvp-modal">
+    <div class="modal-box">
+      <button class="close-btn" onclick="closeRsvpModal()">✕</button>
+      <h3>Confirm Your Presence</h3>
+      <p class="modal-sub">Please let us know if you'll be joining us!</p>
+      
+      <form id="rsvp-form" onsubmit="submitRsvp(event)">
+        <div class="form-group">
+          <label>Your Full Name</label>
+          <input type="text" id="rsvp-name" placeholder="Enter your name" required>
+        </div>
+
+        <div class="form-group">
+          <label>Number of Guests</label>
+          <select id="rsvp-guests">
+            <option value="1">1 Person (Just Me)</option>
+            <option value="2">2 Persons</option>
+            <option value="3">3+ Family</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Will you attend?</label>
+          <div class="radio-row">
+            <label class="radio-label">
+              <input type="radio" name="attend" value="yes" checked>
+              <span>Joyfully Accept 🎉</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="attend" value="no">
+              <span>Regretfully Decline</span>
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary full-width">Send Confirmation</button>
+      </form>
+
+      <div id="rsvp-success" class="rsvp-success hidden">
+        <div class="success-icon">✨</div>
+        <h4>RSVP Received!</h4>
+        <p>Thank you! Your presence will make our celebration extra special.</p>
+        <button class="btn btn-secondary" onclick="closeRsvpModal()">Back to Card</button>
+      </div>
+    </div>
+  </div>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
